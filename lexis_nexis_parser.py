@@ -25,7 +25,7 @@ class LexisNexisParser(object):
         self.num_geo = args.num_geo
         self.max_char = args.max_char
         self.filename = args.filename
-        self.outfile_name = args.out_file or '.'.join(args.filename.split('.')[:-1] + ['csv'])
+        self.outfile_name = args.out_file or '.'.join(args.filename.split('.')[:-1] + ['_out.csv'])
         self.key_word_fields = args.fields or [
             'PUBLICATION-TYPE', 'HEADLINE', 'BODY'] + args.extra_fields
         titles = ["publication", "pub_date"] + self.key_word_fields
@@ -63,7 +63,7 @@ class LexisNexisParser(object):
             except Exception, e:
                 row = []
                 print "------ error with self.document {0} ------".format(doc_num[0])
-                print "Error: {0}".format(str(e))
+                print "Error: {0}".format(e)
             self.csv_writer.writerow(row)
             self.document = ''
             print 'parsing {0} of {1}'.format(*doc_num)
