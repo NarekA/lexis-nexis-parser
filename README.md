@@ -5,7 +5,7 @@ Extract metadata from Lexis Nexis Output
 
 Basic Usage:
 ```
-$ python lexis_nexis_parser.py input_file
+$ python lexis_nexis_parser.py file.txt
 ```
 
 This will process the input file and extract the following fields: 
@@ -18,10 +18,10 @@ This will process the input file and extract the following fields:
 
 Advanced Usage:
 ```
-python lexis_nexis_parser.py trial1.TXT --num-geo=6 -o data.csv -e CITY -m 1000
+python lexis_nexis_parser.py file.txt --num-geo=6 -o data.csv -e CITY -m 1000
 ```
 
-This parses
+This parses the same file but extract an extra field (CITY), it also extracts up to 6 geo locations and has a maxumum number of characters per excel cell of 1000. Also the advanced version saves the output to data.csv instead of {filename}_out.csv
 
 
 ```
