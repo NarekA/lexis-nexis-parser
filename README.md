@@ -18,10 +18,10 @@ This will process the input file and extract the following fields:
 
 Advanced Usage:
 ```
-python lexis_nexis_parser.py file.txt --num-geo=6 -o data.csv -e CITY -m 1000
+python lexis_nexis_parser.py file.txt --num-geo=6 -o data.csv -e CITY COUNTRY -m 1000
 ```
 
-This parses the same file but extract an extra field (CITY), it also extracts up to 6 geo locations and has a maxumum number of characters per excel cell of 1000. Also the advanced version saves the output to data.csv instead of {filename}_out.csv
+This parses the same file but extract two extra fields (CITY, COUNTRY), it also extracts up to 6 geo locations and has a maxumum number of characters per excel cell of 1000. Also the advanced version saves the output to data.csv instead of {filename}_out.csv
 
 
 ```
