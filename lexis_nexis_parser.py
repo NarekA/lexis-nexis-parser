@@ -6,7 +6,7 @@ import argparse
 field_extractor = '{0}:\s*((?:.*\n)*?)(?:(?:[^a-z]*[A-Z][^a-z]*:)|$)'
 doc_seperator = re.compile('(\d+) of (\d+) DOCUMENTS')
 publication_date_re = re.compile(
-    'Copyright(?:.+\n)(?:[^\S\r\n]*\S+.*\n)*[^\S\r\n]*(?:All Rights Reserved\s*)*(\S.*?)\n\s*(.+)')
+    'Copyright(?:.+\n)(?:[^\S\r\n]*\S+.*\n)*[^\S\r\n]*(?:All Rights Reserved\s*)*(\S.*?)\n(?:.*\n)*?\s*(.+\d{4}.+)')
 geographic_regex = re.compile(field_extractor.format('GEOGRAPHIC'))
 geo_splitter = re.compile('(.*?)\s*\((\d+)%\);*\s*')
 
