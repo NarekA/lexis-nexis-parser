@@ -2,6 +2,7 @@ import re
 import sys
 import csv
 import argparse
+from dateutil.parser import parse
 
 field_extractor = '{0}:\s*((?:.*\n)*?)(?:(?:[^a-z]*[A-Z][^a-z]*:)|$)'
 doc_seperator = re.compile('(\d+) of (\d+) DOCUMENTS')
@@ -40,6 +41,10 @@ class LexisNexisParser(object):
     def parse_document(self):
         data = list(
             match_and_group(publication_date_re, self.document) or ['', ''])
+        try:
+            data[1] = parse(data[1]).strftime("%Y-%m-%d")
+        except:
+            pass
 
         for regex in self.regexes:
             data.append((match_and_group(regex, self.document) or [''])[0][:self.max_char])
