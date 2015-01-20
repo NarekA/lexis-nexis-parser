@@ -44,8 +44,11 @@ class LexisNexisParser(object):
         try:
             data[1] = parse(data[1]).strftime("%Y-%m-%d")
         except:
-            pass
-
+            try:
+                data[1] = parse(data[1][:data[1].rfind(',')]).strftime("%Y-%m-%d")
+            except:
+                pass
+        
         for regex in self.regexes:
             data.append((match_and_group(regex, self.document) or [''])[0][:self.max_char])
 
